@@ -33,33 +33,36 @@ function del(n) {
 
 
 submit.addEventListener("click", function () {
-    var name = window.document.getElementById("name").value;
-    var title = window.document.getElementById("title").value;
-    var ext = window.document.getElementById("extension").value;
+    var name = window.document.getElementById("name");
+    var title = window.document.getElementById("title");
+    var ext = window.document.getElementById("extension");
 
-    if (!name) {
+    if (!name.value) {
         window.document.querySelector(".reqn").style.display = "inline-block";
     }
     else {
         document.querySelector(".reqn").style.display = "none";
     }
 
-    if (!title) {
+    if (!title.value) {
         document.querySelector(".reqt").style.display = "inline-block";
     }
     else {
         document.querySelector(".reqt").style.display = "none";
     }
 
-    if (!ext) {
+    if (!ext.value) {
         document.querySelector(".reqe").style.display = "inline-block";
     }
     else {
         document.querySelector(".reqe").style.display = "none";
     }
-    
-    if(name && title && ext){
-        employees.push([name, title, ext]);
+
+    if (name.value && title.value && ext.value) {
+        employees.push([name.value, title.value, ext.value]);
+        name.value = "";
+        title.value = "";
+        ext.value = "";
     }
 
 
